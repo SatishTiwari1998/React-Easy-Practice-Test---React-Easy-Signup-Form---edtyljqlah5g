@@ -4,22 +4,6 @@ function isEmailAddress(str) {
   return str.match(pattern);
 }
 
-document.getElementById("submit").addEventListener("click", (e) => {
-  e.preventDefault();
-  const name = document.getElementById("name").value;
-  const email = document.getElementById("email").value;
-  const password = document.getElementById("password").value;
-  const data = { name, email, password };
-  const errors = signUpFormValidation(data);
-  const lbl = document.getElementsByTagName("label");
-  for (let i = 0; i < lbl.length; i++) {
-    lbl[i].textContent = "";
-  }
-  for (const type in errors) {
-    document.getElementById(type + "lbl").textContent = errors[type];
-  }
-});
-
 const signUpFormValidation = (formData) => {
   const error = {};
   const fields = ["email", "password", "name"];

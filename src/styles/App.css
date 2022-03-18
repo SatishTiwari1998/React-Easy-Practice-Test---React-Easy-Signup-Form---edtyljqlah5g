@@ -1,3 +1,46 @@
 *{
     font-family:sans-serif;
+
 }
+
+form {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    margin: auto;
+  }
+  
+  input {
+    width: 60%;
+    height: 40px;
+    margin: 5px 0;
+    outline: none;
+    padding: 0 15px;
+    font-size: 1.3rem;
+  }
+  
+  button {
+    width: 30%;
+    height: 50px;
+    background: green;
+    border: none;
+    outline: none;
+    margin-top: 20px;
+    font-size: 1.2rem;
+    color: white;
+  }
+  
+  label {
+    text-align: centre;
+    color: red;
+  }
+  div {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    font-size: 1.3em;
+  }
+  div > label {
+    color: black;
+  }
+  
