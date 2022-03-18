@@ -1,7 +1,5 @@
 import React from "react";
 import "../styles/App.css";
-import { signUpFormValidation } from "../utils/validation.js";
-
 const App = () => {
   return (
     <>
@@ -15,13 +13,7 @@ const App = () => {
         <br />
         <input type="checkbox" id="consent" /> Consent.
         <br />
-        <button
-          id="submit"
-          type="submit"
-          onClick={() => {
-            signUpFormValidation();
-          }}
-        >
+        <button id="submit" type="submit">
           Signup
         </button>
       </form>
@@ -30,4 +22,3 @@ const App = () => {
 };
 
 export default App;
-
