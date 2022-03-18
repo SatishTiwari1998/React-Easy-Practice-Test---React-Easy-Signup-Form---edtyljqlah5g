@@ -18,7 +18,7 @@ const App = () => {
         <button
           id="submit"
           type="submit"
-          onclick={() => {
+          onClick={() => {
             signUpFormValidation();
           }}
         >
