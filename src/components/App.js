@@ -1,40 +1,16 @@
 import React, { useState } from "react";
 import "../styles/App.css";
-import validator from "validator";
+import { signUpFormValidation } from "../utils/validation";
 const App = () => {
   const [name, setname] = useState("");
   const [email, setemail] = useState("");
   const [password, setpassword] = useState("");
-  const [nameError, setnameError] = useState("");
-  const [emailError, setemailError] = useState("");
-  const [passwordError, setpasswordError] = useState("");
+  const [errors, setErrors] = useState([]);
 
   function checkError() {
-    if (!name) {
-      setnameError("name not present");
-    } else if (name && (name.length < 3 || name.length > 20)) {
-      setnameError("Name should be atleast 4 chars and less than 20 chars");
-    } else {
-      setnameError("");
-    }
-
-    if (!email) {
-      setemailError("email not present");
-    } else if (email && validator.isEmail(email)) {
-      setemailError("");
-    } else {
-      setemailError("Not a valid email");
-    }
-
-    if (!password) {
-      setpasswordError("password not present");
-    } else if (password && (password.length < 6 || password.length > 30)) {
-      setpasswordError(
-        "Password should be atleast 6 chars and less than 30 chars"
-      );
-    } else {
-      setpasswordError("");
-    }
+    const data = { name, email, password };
+    setErrors(signUpFormValidation(data));
+    console.log(errors);
   }
 
   return (
@@ -48,7 +24,7 @@ const App = () => {
           }}
           placeholder="Name"
         />
-        <label id="namelbl">{nameError}</label>
+        <label id="namelbl">{errors.name}</label>
         <input
           id="email"
           value={email}
@@ -57,7 +33,7 @@ const App = () => {
           }}
           placeholder="Email"
         />
-        <label id="emaillbl">{emailError} </label>
+        <label id="emaillbl">{errors.email} </label>
         <input
           id="password"
           type="password"
@@ -67,7 +43,7 @@ const App = () => {
           }}
           placeholder="Password"
         />
-        <label id="passwordlbl">{passwordError}</label>
+        <label id="passwordlbl">{errors.password}</label>
         <div>
           <label>Consent</label>
           <input type="checkbox" id="consent" />
